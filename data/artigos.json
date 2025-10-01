@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "A Evolução da Web: de páginas estáticas à Internet dinâmica",
+    "autor": "Equipe do Blog",
+    "data": "2024-08-10T00:00:00.000Z",
+    "conteudo": "A Internet passou por uma transformação profunda desde os seus primeiros dias. No início, a Web era essencialmente um repositório de páginas estáticas, com poucas possibilidades de interação. Com o avanço de linguagens como JavaScript e o surgimento de frameworks modernos, aplicações web tornaram-se rápidas, responsivas e ricas em recursos. Hoje, criadores e empresas utilizam APIs, computação em nuvem e técnicas de renderização inteligente para entregar experiências personalizadas em escala."
+  },
+  {
+    "titulo": "Como os mecanismos de busca moldaram a experiência online",
+    "autor": "Equipe do Blog",
+    "data": "2024-09-05T00:00:00.000Z",
+    "conteudo": "Mecanismos de busca como o Google redefiniram a forma como descobrimos informações na Internet. A indexação de bilhões de páginas, somada a algoritmos de relevância, permite respostas quase instantâneas a qualquer pergunta. Para sites e criadores, entender SEO é fundamental: desde títulos descritivos e metadados até performance e acessibilidade. Essas práticas garantem que conteúdos de qualidade sejam encontrados pelo público certo."
+  },
+  {
+    "titulo": "Redes sociais: impacto cultural e desafios de moderação",
+    "autor": "Equipe do Blog",
+    "data": "2024-07-22T00:00:00.000Z",
+    "conteudo": "As redes sociais conectaram bilhões de pessoas e aceleraram a circulação de ideias, tendências e notícias. Ao mesmo tempo, criaram novos desafios: desinformação, bolhas de opinião e a necessidade de moderação em larga escala. Plataformas investem em IA e diretrizes de comunidade, enquanto usuários buscam experiências mais saudáveis e focadas. A educação digital tornou-se peça-chave para navegar nesse cenário."
+  },
+  {
+    "titulo": "Privacidade e segurança: como proteger seus dados na Internet",
+    "autor": "Equipe do Blog",
+    "data": "2024-06-15T00:00:00.000Z",
+    "conteudo": "Com o aumento do tempo online, proteger dados pessoais virou prioridade. Boas práticas incluem uso de senhas fortes, autenticação em dois fatores, cuidado com links suspeitos e atualização constante de softwares. Empresas adotam criptografia, políticas de acesso e auditorias para reduzir riscos. Para o usuário, entender permissões de aplicativos e configurações de privacidade é um passo essencial para manter sua vida digital segura."
+  }
+]
