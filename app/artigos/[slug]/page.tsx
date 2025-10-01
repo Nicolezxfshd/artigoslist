@@ -1,23 +1,11 @@
-// app/artigos/[slug]/page.tsx
-import { GetStaticPropsContext } from 'next/types'; // opcional para tipagem
 import { notFound } from 'next/navigation';
+import artigosData from '../../../data/artigos.json';
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const artigosData = [
-  { slug: 'exemplo-artigo', title: 'Exemplo de Artigo', content: 'Conteúdo aqui...' },
-  // adicione mais artigos
-];
-
-export default function Page({ params }: PageProps) {
+export default async function ArtigoPage({ params }: { params: { slug: string } }) {
   const artigo = artigosData.find((a) => a.slug === params.slug);
 
   if (!artigo) {
-    notFound(); // página 404
+    notFound();
   }
 
   return (
@@ -26,5 +14,12 @@ export default function Page({ params }: PageProps) {
       <p>{artigo.content}</p>
     </div>
   );
+}
+
+// Rotas estáticas (SSG)
+export async function generateStaticParams() {
+  return artigosData.map((artigo) => ({
+    slug: artigo.slug
+  }));
 }
 
