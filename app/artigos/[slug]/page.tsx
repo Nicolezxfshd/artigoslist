@@ -4,7 +4,7 @@ import { getAllArticles, getArticleBySlug } from '@/lib/data';
 
 export const dynamic = 'force-static';
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const artigos = await getAllArticles();
   return artigos.map((a) => ({ slug: a.slug }));
 }
@@ -39,8 +39,3 @@ export default async function ArtigoPage({ params }: { params: Promise<{ slug: s
     </article>
   );
 }
-
-    slug: artigo.slug
-  }));
-}
-
