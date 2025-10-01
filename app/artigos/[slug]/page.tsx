@@ -1,24 +1,45 @@
 import { notFound } from 'next/navigation';
-import artigosData from '../../../data/artigos.json';
+import type { Metadata } from 'next';
+import { getAllArticles, getArticleBySlug } from '@/lib/data';
 
-export default async function ArtigoPage({ params }: { params: { slug: string } }) {
-  const artigo = artigosData.find((a) => a.slug === params.slug);
+export const dynamic = 'force-static';
 
-  if (!artigo) {
-    notFound();
-  }
+export async function generateStaticParams() {
+  const artigos = await getAllArticles();
+  return artigos.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const artigo = await getArticleBySlug(slug);
+  if (!artigo) return { title: 'Artigo não encontrado' };
+  const desc = artigo.conteudo.length > 160 ? artigo.conteudo.slice(0, 160) + '…' : artigo.conteudo;
+  return {
+    title: `${artigo.titulo} — ArtigoList`,
+    description: desc,
+  };
+}
+
+export default async function ArtigoPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const artigo = await getArticleBySlug(slug);
+  if (!artigo) return notFound();
 
   return (
-    <div>
-      <h1>{artigo.title}</h1>
-      <p>{artigo.content}</p>
-    </div>
+    <article>
+      <h1>{artigo.titulo}</h1>
+      <p className="muted">
+        Por {artigo.autor} · {new Date(artigo.data).toLocaleDateString('pt-BR')}
+      </p>
+      <div className="prose">
+        {artigo.conteudo.split('\n\n').map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
+    </article>
   );
 }
 
-// Rotas estáticas (SSG)
-export async function generateStaticParams() {
-  return artigosData.map((artigo) => ({
     slug: artigo.slug
   }));
 }
