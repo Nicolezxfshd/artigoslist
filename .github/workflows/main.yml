@@ -1,5 +1,5 @@
 name: Pipeline CI/CD
-
+#Definir quando o pipeline será disparado
 on: 
   push:
     branches:
