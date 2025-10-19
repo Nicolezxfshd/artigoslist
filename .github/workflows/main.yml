@@ -3,7 +3,7 @@ name: Pipeline CI/CD
 on: 
   push:
     branches:
-    -main
+    - main
    workflow_dispatch: # habilitar o botão "Run workflow" no Gifthub Actions
    
 jobs:
