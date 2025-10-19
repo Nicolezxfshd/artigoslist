@@ -1,0 +1,27 @@
+name: Pipeline CI/CD
+
+on: 
+  push:
+    branches:
+    -main
+   workflow_dispatch: # habilitar o botão "Run workflow" no Gifthub Actions
+   
+jobs:
+# Primeiro job: build
+build:
+    runs-on: ubuntu-latest #Imagem na maquina usada no CI
+    
+    steps:
+     - name: Checkout do código
+      - uses: actions/checkout@v4
+       
+        name: Instalação do Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: instalação das depêndencias 
+        run: npm install
+        
+      - name: Rodar o build 
+      - run: npm run build
