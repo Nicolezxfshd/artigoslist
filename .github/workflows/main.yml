@@ -20,5 +20,5 @@ jobs:
         run: npm run build
 
       - name: Fazer deploy na Vercel
-        run: npx vercel --token=${{ 9x4yAOg6cLlMqqImVfe37eep }} --prod --confirm
+        run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --confirm
 
