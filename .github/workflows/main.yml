@@ -25,3 +25,6 @@ build:
         
       - name: Rodar o build 
       - run: npm run build
+
+       - name: Deploy na Vercel
+        run: npx vercel --token=${{ 9x4yAOg6cLlMqqImVfe37eep }} --prod --confirm
