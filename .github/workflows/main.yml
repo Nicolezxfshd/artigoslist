@@ -1,30 +1,24 @@
-name: Pipeline CI/CD
-#Definir quando o pipeline será disparado
-on: 
+name: Deploy to Vercel
+
+on:
   push:
     branches:
-    - main
-   workflow_dispatch: # habilitar o botão "Run workflow" no Gifthub Actions
-   
-jobs:
-# Primeiro job: build
-build:
-    runs-on: ubuntu-latest #Imagem na maquina usada no CI
-    
-    steps:
-     - name: Checkout do código
-      - uses: actions/checkout@v4
-       
-        name: Instalação do Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          
-      - name: instalação das depêndencias 
-        run: npm install
-        
-      - name: Rodar o build 
-      - run: npm run build
+      - main  # ou a branch principal do seu projeto
 
-       - name: Deploy na Vercel
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Build do projeto
+        run: npm run build
+
+      - name: Fazer deploy na Vercel
         run: npx vercel --token=${{ 9x4yAOg6cLlMqqImVfe37eep }} --prod --confirm
+
